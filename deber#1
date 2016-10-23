@@ -1,0 +1,83 @@
+/*
+sistemas microprosesados
+Jonathan Mera
+*/
+
+int leds[14]={0,1,2,3,4,5,6,7,8,9,10,11,12,13};
+int contador=0;
+
+void setup() {
+  // put your setup code here, to run once:
+for (contador=0;contador<14;contador++){
+  pinMode (leds[contador], OUTPUT);
+}
+}
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+luces(); //llamada a la clase luces
+luces1();   //llamada a la clase luces1
+luces2();    ////llamada a la clase luces2
+}
+
+//se va a encender el primer led y el segundo, luego el primer led y el tercero, el primer led y el cuarto y asi sucesivamente
+//en el que el primer led siempre se va a encender con alternancia apartir del segundo led
+void luces(){
+ 
+  for(contador=1;contador<=13;contador++) //ciclo for que empieza en la posicion uno y va aumentando de uno en uno
+  {
+    digitalWrite(leds[contador],HIGH);     //en la posicion 0 siempre se va a encender y apagar
+    delay(100);
+    digitalWrite(leds[contador],LOW);      
+    delay(100);
+
+    digitalWrite(0,HIGH);
+    delay(100);
+    digitalWrite(0,LOW);
+    delay(100);
+  }
+}
+
+/*
+ *secuencia de leds de abajo hacia arriba y de arriba hacia abajo
+*/
+void luces1(){
+  for(contador=0;contador<=13;contador++) //ciclo for para que empiece desde la posicion 0 hasta la posicion 13
+  {
+    digitalWrite (leds[contador],HIGH);
+  delay(50);
+  digitalWrite (leds[contador],LOW);
+  delay(50);
+  }
+
+for (contador=12;contador>=0;contador--) //ciclo for para que desde la posicion 12 disminuya de uno en uno hasta la posicion 0
+{
+  
+  digitalWrite (leds[contador],HIGH);
+  delay(100);
+  digitalWrite (leds[contador],LOW);
+  delay(100);
+}
+}
+
+/*
+ * secuencia de leds para que vaya desde la posicion 0 hasta la posicion 6 en aumento y desde la posicion 13 hasta la 7 diminuyendo
+ */
+void luces2(){
+  for(contador=0;contador<7;contador++)  //ciclo for para que empiece desde la posicion 0 hasta la posicion 6 y vaya aumentando de uno en uno
+  {
+    digitalWrite (leds[contador],HIGH);
+  delay(100);
+  digitalWrite (leds[contador],LOW);
+  delay(100);
+  }
+for (contador=13;contador>6;contador--)  //ciclo for para que empiece desde la posicion 13 hasta la posicion 7 y vaya disminuyendo
+{
+  
+  digitalWrite (leds[contador],HIGH);
+  delay(100);
+  digitalWrite (leds[contador],LOW);
+  delay(100);
+}
+}
