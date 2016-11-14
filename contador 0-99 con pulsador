@@ -1,3 +1,4 @@
+//DECLARACION DE VARIABLES
 int A=13;
 int B=12;
 int C=11;
@@ -25,35 +26,35 @@ pinMode (pulsador,INPUT);
 void loop() {
   // put your main code here, to run repeatedly:
 
-pul=digitalRead(pulsador);
-if (pul==HIGH)
+pul=digitalRead(pulsador);       //lectura al pin pulsador
+if (pul==HIGH)                   //condicion si la variable pul esta en nivel alto ejecuta las sigueintes lineas de codigo
 {
-  if(contador<99)
+  if(contador<99)               }//condicion que ejecute el codigo hasta que contador sea menor a 99
   {
     
-    contador ++;
+    contador ++;                    //incremento de contador de uno en uno
   
     
-      contador_decenas=contador/10;
-      digitalWrite(unidades,LOW);
-      digitalWrite(decenas,HIGH);
-      disp(contador_decenas);
-      delay(50);
-      contador_unidades=contador-(contador_decenas*10);
-      digitalWrite(unidades,HIGH);
-        digitalWrite(decenas,LOW);
-        disp(contador_unidades);
+      contador_decenas=contador/10;         //operacion para obtener las decenas
+      digitalWrite(unidades,LOW);           //pin unidades en nivel bajo
+      digitalWrite(decenas,HIGH);           //pin decenas en nivel alto
+      disp(contador_decenas);               //llamado al metodo disp
+      delay(50);          
+      contador_unidades=contador-(contador_decenas*10);       //operacion para obtener las unidades
+      digitalWrite(unidades,HIGH);                            //pin unidades en nivel alto
+        digitalWrite(decenas,LOW);                            //pin decenas en nivel bajo
+        disp(contador_unidades);                              //llamado al metodo disp
         delay(50);
     
 
   }
 
 else
-contador=0;
+contador=0;               //reinicio de contador
 }
   
 }
-void disp (int numero)
+void disp (int numero)          //metodo para encender numeros de 0 al 9 en los displays
 {
      switch(numero)
     {
