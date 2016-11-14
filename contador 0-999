@@ -1,3 +1,4 @@
+//DECLARACION DE VARIABLES
 int A=13;
 int B=12;
 int C=11;
@@ -28,40 +29,40 @@ void loop() {
 
 
 
-  if(contador<1000)
+  if(contador<1000)                        //condicion que se ejecute hasta que contador sea menor a 1000
   {
     
-    contador ++;
-  
-    contador_centenas=contador/100;
-    digitalWrite(centenas,HIGH);
-    digitalWrite(unidades,LOW);
-    digitalWrite(decenas,LOW);
-    disp(contador_centenas);
+    contador ++;                           //aumento del contador de uno en uno
+    
+    contador_centenas=contador/100;        //operacion para obtener las decenas
+    digitalWrite(centenas,HIGH);            //pin centenas en nivel alto 
+    digitalWrite(unidades,LOW);             //pin unidades en nivel bajo 
+    digitalWrite(decenas,LOW);              //pin decenas en nivel bajo
+    disp(contador_centenas);                llamado al metodo disp
     delay(50);
     
-      contador_decenas=(contador-contador_centenas*100)/10;
-      digitalWrite(centenas,LOW);
-      digitalWrite(unidades,LOW);
-      digitalWrite(decenas,HIGH);
-      disp(contador_decenas);
+      contador_decenas=(contador-contador_centenas*100)/10;     //operacion para obtener las decenas
+      digitalWrite(centenas,LOW);                               //pin centenas en nivel bajo
+      digitalWrite(unidades,LOW);                               //pin unidades en nivel bajo
+      digitalWrite(decenas,HIGH);                               //pin decenas en nivel alto
+      disp(contador_decenas);                                   //llamada al metodo disp
       delay(50);
-      contador_unidades=contador-(contador_centenas*100)-(contador_decenas*10);
-      digitalWrite(unidades,HIGH);
-        digitalWrite(decenas,LOW);
-        digitalWrite(centenas,LOW);
-        disp(contador_unidades);
+      contador_unidades=contador-(contador_centenas*100)-(contador_decenas*10);       //operacion para obtener las unidades
+      digitalWrite(unidades,HIGH);                                                    //pin unidades en nivel alto
+        digitalWrite(decenas,LOW);                                                    //pin decenas en nivel bajo
+        digitalWrite(centenas,LOW);                                                   //pin centenas en nivel bajo
+        disp(contador_unidades);                                                      //llamada al metodo disp
         delay(50);
     
 
   }
 
-else
+else                              //reinicio del contador
 contador=0;
 }
   
 
-void disp (int numero)
+void disp (int numero)            //metodo para encender los numeros de 0 al 9
 {
      switch(numero)
     {
