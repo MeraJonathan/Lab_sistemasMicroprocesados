@@ -1,3 +1,4 @@
+//DECLARACION DE VARIABLES Y PINES DE ENTRADA
 int A=13;
 int B=12;
 int C=11;
@@ -26,25 +27,25 @@ pinMode (motor,OUTPUT);
 void loop() {
   // put your main code here, to run repeatedly:
 
-ad=analogRead(0);
-analogWrite(motor, ad/4);
+ad=analogRead(0);  //lee el pin analogico O
+analogWrite(motor, ad/4);              //escribe el valor en el pin del motor definido como analogico la division para 4 es porque llega a valores hast 255
 delay(50);
-  ad=map (ad, 0, 1023, 0, 99);   
-      contador_decenas=ad / 10;
-      digitalWrite(unidades,LOW);
-      digitalWrite(decenas,HIGH);
-      disp(contador_decenas);
+  ad=map (ad, 0, 1023, 0, 99);           //convierte el rango de variacion
+      contador_decenas=ad / 10;          //para obtener las decenas y posteriormente se visualicen en el display
+      digitalWrite(unidades,LOW);         //establece el pin unidades en nivel bajo
+      digitalWrite(decenas,HIGH);         //establece el pin decenas en nivel alto
+      disp(contador_decenas);             //llama al metodo disp
       delay(50);
-      contador_unidades=ad-(contador_decenas*10);
-      digitalWrite(unidades,HIGH);
-        digitalWrite(decenas,LOW);
-        disp(contador_unidades);
+      contador_unidades=ad-(contador_decenas*10);       //operacion para obtener unidades
+      digitalWrite(unidades,HIGH);                      //establece el pin unidades en nivel alto
+        digitalWrite(decenas,LOW);                      //establece el pin decenas en nivel bajo
+        disp(contador_unidades);                         //llama al metodo disp
         delay(50);
     
 }
   
 
-void disp (int numero)
+void disp (int numero)                //metodo para encender los numeros del 1 al 9 en el display
 {
      switch(numero)
     {
